@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import loginIcons from '../assets/signin.gif'
+import imageTobase64 from "../helpers/imageTobase64";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,10 +25,17 @@ const SignUp = () => {
     });
   };
 
-  const handleUploadPic = (e) => {
+  const handleUploadPic = async(e) => {
     const file = e.target.files[0]
 
-    console.log("file", file)
+    const imagePic = await imageTobase64(file)
+  
+    setData((preve) => {
+      return{
+        ...preve,
+        profilepic: imagePic
+      }
+    })
   }
 
   const handleSubmit = (e) => {
@@ -39,7 +48,7 @@ const SignUp = () => {
         <div className="bg-white max-w-sm py-5 mx-auto p-5 w-full">
           <div className="w-20 h-20  mx-auto relative overflow-hidden rounded-full">
             <div>
-              <img src="https://i.ibb.co/H2Mbg8y/signin.gif" alt="icon" />
+              <img src={data.profilepic || loginIcons} alt="icon" />
             </div>
             <form>
               <label>
