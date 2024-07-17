@@ -70,6 +70,7 @@ const SignUp = () => {
                   name="name"
                   value={data.name}
                   onChange={handleOnChange}
+                  required
                   className="w-full h-full outline-none bg-transparent"
                 />
               </div>
@@ -83,6 +84,7 @@ const SignUp = () => {
                   name="email"
                   value={data.email}
                   onChange={handleOnChange}
+                  required
                   className="w-full h-full outline-none bg-transparent"
                 />
               </div>
@@ -96,6 +98,7 @@ const SignUp = () => {
                   placeholder="enter password"
                   name="password"
                   value={data.password}
+                  required
                   onChange={handleOnChange}
                   className="w-full h-full outline-none bg-transparent"
                 />
@@ -117,6 +120,7 @@ const SignUp = () => {
                   name="confirmedPassword"
                   value={data.confirmedPassword}
                   onChange={handleOnChange}
+                  required
                   className="w-full h-full outline-none bg-transparent"
                 />
                 <div
